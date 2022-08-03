@@ -14,4 +14,4 @@ This is the first programming task that was given to me. This project will colle
 <br>
 This project is active and everyday creating a new content to show. Feel free to suggest some challenges to this project on Issues.<br>
 <br>
-This project is maintained by <a href="https://github.com/MinecraftJohn" target="_blank" rel="noopener noreferrer">John Napoles</a> and Marlon Donal it is open to contributions!
+This project is maintained by <a href="https://github.com/MinecraftJohn" target="_blank" rel="noopener noreferrer">John Napoles</a> and <a href="https://github.com/MarlonDonal" target="_blank" rel="noopener noreferrer">Marlon Donal</a> it is open to contributions!
