@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="app_form_submit_container">
-                    <span class="app_form_switch_form">Don't have an account? <a href="index.php">Register</a></span>
+                    <span class="app_form_switch_form">Don't have an account? <a href="register.php">Register</a></span>
                     <button class="app_form_submit app_form_submit_button" name="loginSubmit">Login</button>
                 </div>
                 <?php

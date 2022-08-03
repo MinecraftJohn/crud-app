@@ -1,0 +1,137 @@
+.homeSection {
+    background-color: #fff;
+    width: 100%;
+    height: calc(90vh - 80px);
+    padding: 32px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.homeContainer {
+    width: 1024px;
+    max-width: 90%;
+    height: 100%;
+    display: flex;
+    gap: 64px;
+}
+
+.homeBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #5f6368;
+    position: relative;
+}
+
+.homeBoxLogo {
+    width: 300px;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.homeBoxTitle {
+    width: 100%;
+    font-size: 80px;
+}
+
+.homeBoxSubtitle {
+    width: 100%;
+    font-size: 18px;
+}
+
+.homeBoxButton {
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 64px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-top: 64px;
+    max-width: 95%;
+}
+
+.homeLearnMore {
+    text-align: center;
+    font-size: 10px;
+    color: rgba(95, 99, 104, 0.7);
+    margin: 32px 0 64px;
+}
+
+.aboutSection {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutContainer {
+    background-color: #fbfbfb;
+    width: 1024px;
+    max-width: 90%;
+    padding: 32px 0;
+    display: flex;
+    gap: 64px;
+}
+
+.aboutVideoContainer {
+    width: 100%;
+    height: 290px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.aboutVideoThumbnail {
+    height: 100%;
+}
+
+.aboutTextContainer {
+    width: 100%;
+    color: #5f6368;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aboutTextTitle {
+    font-size: 24px;
+}
+
+.aboutTextContexts {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 680px) {
+    .homeSection {
+        height: calc(100vh - 80px);
+    }
+    .homeContainer {
+        flex-direction: column-reverse;
+    }
+    .homeBox {
+        align-items: center;
+    }
+    .homeBoxLogo {
+        width: auto;
+        height: 80%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+    .homeBoxTitle {
+        font-size: 36px;
+        text-align: center;
+    }
+    .homeBoxSubtitle {
+        font-size: 16px;
+        text-align: center;
+    }
+}

@@ -1,6 +1,6 @@
 <nav class="navSection">
     <div class="navContainer">
-        <a href="index.php" class="navLogoContainer">
+        <a href="index.php" class="navLogoContainer" title="Create Read Update and Delete">
             <svg width="152" height="42" viewBox="0 0 228 60" fill="none">
                 <rect x="6.58" y="29.6985" width="34" height="34" rx="8" transform="rotate(-45 6.58 29.6985)" stroke="#1A73E8" stroke-width="8"/>
                 <rect x="25" y="24.0058" width="12" height="12" rx="6" fill="#1A73E8"/>
@@ -10,9 +10,9 @@
         </a>
         <div class="navLinkContainer">
             <a href="index.php" class="navLink">Home</a>
-            <a href="#" class="navLink">About</a>
-            <a href="#" class="navLink">Documentaion</a>
-            <a href="#" class="navLink navLinkButton">Get started</a>
+            <a href="#" class="navLink">Support</a>
+            <a href="https://github.com/MinecraftJohn/crud_app" class="navLink">Source Code</a>
+            <a href="register.php" class="navLink navLinkButton">Get started</a>
         </div>
         <svg width="32" height="32" class="navMobileMenuIcon" onclick="navMenuFadein()" viewBox="0 0 32 32">
             <circle opacity="0" cx="16" cy="16" r="16"></circle>
@@ -22,8 +22,8 @@
 </nav>
 <div class="navMobileLinkContainer">
     <a href="index.php" class="navLink">Home</a>
-    <a href="#" class="navLink">About</a>
-    <a href="#" class="navLink">Documentaion</a>
-    <button class="navLink navLinkButton">Get started</button>
+    <a href="#" class="navLink">Support</a>
+    <a href="https://github.com/MinecraftJohn/crud_app" class="navLink">Source Code</a>
+    <a href="register.php" class="navLink navLinkButton">Get started</a>
 </div>
 <div class="navMobileLinkBackground" onclick="navMenuFadeout()"></div>
