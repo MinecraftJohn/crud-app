@@ -10,3 +10,5 @@ var formSubmitButton = document.getElementsByClassName("app_form_submit_button")
 var navMobileLinkContainer = document.getElementsByClassName("navMobileLinkContainer")[0]
 var navMobileMenuIcon = document.getElementsByClassName("navMobileMenuIcon")[0]
 var navMobileLinkBackground = document.getElementsByClassName("navMobileLinkBackground")[0]
+var navLinkButton = document.getElementsByClassName("navLinkButton")[0]
+var navAccountContainer = document.getElementsByClassName("navAccountContainer")[0]

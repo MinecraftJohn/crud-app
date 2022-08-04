@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!empty($_SESSION["sessionLoginEmail"])) {
+        header("Location: home.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +36,10 @@
         <div class="aboutContainer">
             <div class="aboutVideoContainer">
                 <img src="assets/img/crud_video.png" alt="CRUD Video Thumbnail" class="aboutVideoThumbnail">
+                <a href="https://github.com/MinecraftJohn" target="_blank" rel="noopener noreferrer" class="aboutVideoPlayButton">▶</a>
+                <div class="aboutVideoFooterContainer">
+                    WATCH ABOUT CRUD
+                </div>
             </div>
             <div class="aboutTextContainer">
                 <h1 class="aboutTextTitle">What is CRUD?</h1>

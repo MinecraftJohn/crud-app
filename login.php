@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    if (!empty($_SESSION["sessionLoginEmail"])) {
+        header("Location: home.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,21 +39,17 @@
                     <button class="app_form_submit app_form_submit_button" name="loginSubmit">Login</button>
                 </div>
                 <?php
-                    $dbHostName = 'localhost';
-                    $dbUsername = 'root';
-                    $dbPassword = '';
-                    $dbName = 'crud_app';
-
-                    $mysqlConnect = mysqli_connect("$dbHostName", "$dbUsername", "$dbPassword", "$dbName");
+                    include "_connect.php";
 
                     if (isset($_POST['loginSubmit'])) {
                         $loginEmail = $_POST['loginEmail'];
 
-                        $loginCheckEmail = "SELECT * FROM employees WHERE email='$loginEmail'";
+                        $loginCheckEmail = "SELECT email FROM employees WHERE email='$loginEmail'";
                         $loginCheckEmailResult = mysqli_query($mysqlConnect, $loginCheckEmail);
 
                         if ($loginCheckEmailResult->num_rows > 0) {
-                            echo "ni exist";
+                            $_SESSION["sessionLoginEmail"] = "$loginEmail";
+                            echo "<script>window.location.href = 'home.php'</script>";
                         } else {
                             echo "<script>
                                     document.getElementsByClassName('app_form_input_label')[0].style.color = '#d93025';

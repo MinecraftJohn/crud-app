@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!empty($_SESSION["sessionLoginEmail"])) {
+        header("Location: account.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,24 +63,19 @@
                     <button class="app_form_submit_button" name="registerSubmit" style="display: none;"></button>
                 </div>
                 <?php
-                    $dbHostName = 'localhost';
-                    $dbUsername = 'root';
-                    $dbPassword = '';
-                    $dbName = 'crud_app';
-
-                    $mysqlConnect = mysqli_connect("$dbHostName", "$dbUsername", "$dbPassword", "$dbName");
+                    include "_connect.php";
 
                     if (isset($_POST['registerSubmit'])) {
                         $registerName = $_POST['registerName'];
                         $registerEmail = $_POST['registerEmail'];
                         $registerPhone = $_POST['registerPhone'];
 
-                        $registerCheckEmail = "SELECT * FROM employees WHERE email='$registerEmail'";
+                        $registerCheckEmail = "SELECT email FROM employees WHERE email='$registerEmail'";
                         $registerCheckEmailResult = mysqli_query($mysqlConnect, $registerCheckEmail);
 
                         if (!$registerCheckEmailResult->num_rows > 0) {
                             $registerInsertData = "INSERT INTO employees (name, email, phone)
-                            VALUES ('$registerName', '$registerEmail', '$registerPhone');";
+                                                   VALUES                ('$registerName', '$registerEmail', '$registerPhone');";
                             mysqli_query($mysqlConnect, $registerInsertData);
                             echo "<script>
                                     document.getElementsByClassName('app_form_message_container')[0].style.display = 'block';
