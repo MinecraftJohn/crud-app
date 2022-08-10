@@ -76,6 +76,11 @@
     text-align: center;
     margin: 32px 0 64px;
 }
+.tableHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .homeTipContainer {
     background-color: #fff;
@@ -88,15 +93,23 @@
     margin-bottom: 64px;
 }
 
+.tableContainerTitles {
+    background-color: #fff !important;
+}
 .homeTableContainer {
-    margin-top: 16px;
-    padding: 32px;
+    margin: 16px 0 32px;
+    padding: 36px 16px 22px;
 }
 
-.tableContainerTitles {
+.tableContainer {
     display: flex;
     justify-content: space-between;
-    gap: 4px;
+    gap: 6px;
+    padding: 0 16px;
+    border-radius: 6px;
+}
+.tableContainer:hover {
+    background-color: rgba(26, 115, 232, 0.08);
 }
 
 .tableTitles {
@@ -104,10 +117,33 @@
     font-weight: 500;
     margin-bottom: 24px;
 }
+.tableDataContainer {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 .tableData {
     text-align: left;
-    line-height: 36px;
+    line-height: 42px;
+}
+.tableRowName {
+    width: 132px;
+}
+.tableRowBirthdate {
+    width: 92px;
+}
+.tableRowGender {
+    width: 48px;
+}
+.tableRowPhone {
+    width: 84px;
+}
+.tableRowTitle {
+    width: 142px;
+}
+.tableRowActions {
+    width: 64px;
+    text-align: center;
 }
 
 @media screen and (max-width: 680px) {
@@ -133,5 +169,40 @@
     .homeBoxSubtitle {
         font-size: 16px;
         text-align: center;
+    }
+    .tableHeaderContainer {
+        flex-direction: column-reverse;
+        gap: 32px;
+    }
+    .homeTableContainer {
+        overflow: scroll;
+        padding: 22px 0;
+    }
+    .tableContainer {
+        justify-content: flex-start;
+        gap: 16px;
+    }
+    .tableRowName {
+        flex-shrink: 0;
+    }
+    .tableRowBirthdate {
+        flex-shrink: 0;
+    }
+    .tableRowGender {
+        flex-shrink: 0;
+    }
+    .tableRowPhone {
+        flex-shrink: 0;
+    }
+    .tableRowTitle {
+        flex-shrink: 0;
+    }
+    .tableRowActions {
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        right: 12px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
     }
 }

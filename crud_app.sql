@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2022 at 10:44 AM
+-- Generation Time: Aug 10, 2022 at 03:59 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -57,6 +57,7 @@ INSERT INTO `employees` (`id`, `name`, `email`, `phone`) VALUES
 
 CREATE TABLE `fictitious_employees` (
   `id` int(11) NOT NULL,
+  `owner` text NOT NULL,
   `fname` text NOT NULL,
   `lname` text NOT NULL,
   `bdmonth` int(2) NOT NULL,
@@ -71,9 +72,9 @@ CREATE TABLE `fictitious_employees` (
 -- Dumping data for table `fictitious_employees`
 --
 
-INSERT INTO `fictitious_employees` (`id`, `fname`, `lname`, `bdmonth`, `bdday`, `bdyear`, `gender`, `phone`, `title`) VALUES
-(1, 'Eren', 'Yeager', 1, 1, 2000, 1, '09123456789', 'Chief Executive Officer'),
-(2, 'Mikasa', 'Ackerman', 2, 2, 2001, 0, '09951623847', 'Manager');
+INSERT INTO `fictitious_employees` (`id`, `owner`, `fname`, `lname`, `bdmonth`, `bdday`, `bdyear`, `gender`, `phone`, `title`) VALUES
+(1, 'minecraft.john727@gmail.com', 'Eren', 'Yeager', 1, 1, 2000, 1, '09123456789', 'Chief Executive Officer'),
+(2, 'minecraft.john727@gmail.com', 'Mikasa', 'Ackerman', 2, 2, 2001, 0, '09951623847', 'Manager');
 
 --
 -- Indexes for dumped tables

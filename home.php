@@ -27,146 +27,96 @@
                 <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete"
                 target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none;">Learn here!</a></p>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="tableHeaderContainer">
                 <p style="color: #5f6368; font-weight: 500">Fictitious Employees</p>
                 <button class="navLink navLinkButton">+ &nbsp Add New</button>
             </div>
             <div class="homeTipContainer homeTableContainer">
-                <div class="tableContainerTitles">
-                    <p class="tableTitles" style="width: 132px">Name</p>
-                    <p class="tableTitles" style="width: 124px">Birthdate</p>
-                    <p class="tableTitles" style="width: 48px">Gender</p>
-                    <p class="tableTitles" style="width: 84px">Phone</p>
-                    <p class="tableTitles" style="width: 142px">Title</p>
-                    <p class="tableTitles" style="width: 64px">Actions</p>
+                <div class="tableContainer tableContainerTitles">
+                    <p class="tableTitles tableRowName">Name</p>
+                    <p class="tableTitles tableRowBirthdate">Birthdate</p>
+                    <p class="tableTitles tableRowGender">Gender</p>
+                    <p class="tableTitles tableRowPhone">Phone</p>
+                    <p class="tableTitles tableRowTitle">Title</p>
+                    <p class="tableTitles tableRowActions">Actions</p>
                 </div>
-                <?php 
-                    include "_connect.php";
-                    $selectName = "SELECT * FROM fictitious_employees";
-                    $selectNameResult = mysqli_query($mysqlConnect, $selectName);
-                    $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
+                <div class="tableDataContainer">
+                    <?php 
+                        include "_connect.php";
+                        $selectName = "SELECT * FROM fictitious_employees";
+                        $selectNameResult = mysqli_query($mysqlConnect, $selectName);
+                        $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
 
-                    for ($i=1; $i <= $selectNameResult->num_rows; $i++) { 
-                        $selectData = "SELECT * FROM fictitious_employees WHERE id=$i;";
-                        $selectDataResult = mysqli_query($mysqlConnect, $selectData);
-                        $selectDataFetch = mysqli_fetch_assoc($selectDataResult);
-                        switch ($selectNameFetch['bdmonth']) {
-                            case 1:
-                                echo "January";
-                                break;
-                            case 2:
-                                echo "February";
-                                break;
-                            case 3:
-                                echo "March";
-                                break;
-                            case 4:
-                                echo "April";
-                                break;
-                            case 5:
-                                echo "May";
-                                break;
-                            case 6:
-                                echo "June";
-                                break;
-                            case 7:
-                                echo "July";
-                                break;
-                            case 8:
-                                echo "August";
-                                break;
-                            case 9:
-                                echo "September";
-                                break;
-                            case 10:
-                                echo "October";
-                                break;
-                            case 11:
-                                echo "November";
-                                break;
-                            case 12:
-                                echo "December";
-                                break;
-                            
-                            default:
-                                echo "Invalid month!";
-                                break;
-                        }
-                        echo "<div class='tableContainerTitles'>
-                                <p class='tableData' style='width: 132px'>"
-                                    .$selectDataFetch['fname']." ". $selectDataFetch['lname']."
-                                </p>
-                              </div>";
-                    }
-                ?>
-                <div class="tableContainerTitles">
-                    <p class="tableData" style="width: 132px">
-                        <?php echo $selectNameFetch['fname']." ".$selectNameFetch['lname']; ?>
-                    </p>
-                    <p class="tableData" style="width: 124px">
-                        <?php
-                            switch ($selectNameFetch['bdmonth']) {
+                        for ($i=1; $i <= $selectNameResult->num_rows; $i++) { 
+                            $selectData = "SELECT * FROM fictitious_employees WHERE id=$i;";
+                            $selectDataResult = mysqli_query($mysqlConnect, $selectData);
+                            $selectDataFetch = mysqli_fetch_assoc($selectDataResult);
+                            echo "<div class='tableContainer'>
+                                    <p class='tableData tableRowName'>"
+                                        .$selectDataFetch['fname']." ". $selectDataFetch['lname'].
+                                    "</p>
+                                    <p class='tableData tableRowBirthdate'>";
+                            switch ($selectDataFetch['bdmonth']) {
                                 case 1:
-                                    echo "January";
+                                    echo 'Jan';
                                     break;
                                 case 2:
-                                    echo "February";
+                                    echo 'Feb';
                                     break;
                                 case 3:
-                                    echo "March";
+                                    echo 'Mar';
                                     break;
                                 case 4:
-                                    echo "April";
+                                    echo 'Apr';
                                     break;
                                 case 5:
-                                    echo "May";
+                                    echo 'May';
                                     break;
                                 case 6:
-                                    echo "June";
+                                    echo 'Jun';
                                     break;
                                 case 7:
-                                    echo "July";
+                                    echo 'Jul';
                                     break;
                                 case 8:
-                                    echo "August";
+                                    echo 'Aug';
                                     break;
                                 case 9:
-                                    echo "September";
+                                    echo 'Sep';
                                     break;
                                 case 10:
-                                    echo "October";
+                                    echo 'Oct';
                                     break;
                                 case 11:
-                                    echo "November";
+                                    echo 'Nov';
                                     break;
                                 case 12:
-                                    echo "December";
+                                    echo 'Dec';
                                     break;
                                 
                                 default:
-                                    echo "Invalid month!";
+                                    echo 'Invalid month!';
                                     break;
                             }
-                            echo " ".$selectNameFetch['bdday'].", ".$selectNameFetch['bdyear'];
-                        ?>
-                    </p>
-                    <p class="tableData" style="width: 48px">
-                        <?php
-                            if ($selectNameFetch['gender'] == 0) {
-                                echo "Female";
-                            } else if ($selectNameFetch['gender'] == 1) {
-                                echo "Male";
+                            echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
+                                    "</p>
+                                    <p class='tableData tableRowGender'>";
+                            if ($selectDataFetch['gender'] == 0) {
+                                echo 'Female';
+                            } else if ($selectDataFetch['gender'] == 1) {
+                                echo 'Male';
                             }
-                            
-                        ?>
-                    </p>
-                    <p class="tableData" style="width: 84px">
-                        <?php echo $selectNameFetch['phone']; ?>
-                    </p>
-                    <p class="tableData" style="width: 142px">
-                        <?php echo $selectNameFetch['title']; ?>
-                    </p>
-                    <p class="tableData" style="width: 64px">✎ 🗑</p>
+                            echo "</p>
+                                <p class='tableData tableRowPhone'>"
+                                    .$selectDataFetch['phone'].
+                                "</p>
+                                <p class='tableData tableRowTitle'>"
+                                    .$selectDataFetch['title'].
+                                "</p>
+                                <p class='tableData tableRowActions'>✎ 🗑</p>
+                                </div>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
