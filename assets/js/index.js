@@ -5,6 +5,7 @@ function registerInputFocus(formInputLabel, formInput) {
     formInputLabel.style.color = "#1a73e8"
     formInput.style.border = "#1a73e8 solid 1px"
 }
+
 function registerInputBlur(formInputLabel, formInput, formInputMessage) {
     if (formInput.value == "") {
         formInputLabel.style.fontSize = "13px"
@@ -18,7 +19,7 @@ function registerInputBlur(formInputLabel, formInput, formInputMessage) {
 }
 
 // Shortcut Event Trigger Submit Form
-formSubmit[0].addEventListener("keypress", function (event) {
+formSubmit[0].addEventListener("keypress", function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         formSubmitButton[0].click();
@@ -57,7 +58,7 @@ function formSubmitValidate() {
         formInput[2].style.border = "#d93025 solid 1px"
         formInputMessage[2].style.display = "flex"
         formInputMessageText[2].innerHTML = "Only numbers are allowed"
-    } else if (formInput[2].value.length >= 12) {
+    } else if (formInput[2].value.length != 11) {
         formInputLabel[2].style.color = "#d93025"
         formInput[2].style.border = "#d93025 solid 1px"
         formInputMessage[2].style.display = "flex"

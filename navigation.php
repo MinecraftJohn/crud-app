@@ -17,7 +17,7 @@
                         echo '<a href="login.php" class="navLink">Login</a>';
                     }
                 ?>
-                <a href="#" class="navLink">Support</a>
+                <a href="support.php" class="navLink">Support</a>
                 <a href="https://github.com/MinecraftJohn/crud_app" class="navLink">Source Code</a>
                 <?php
                     if (!empty($_SESSION["sessionLoginEmail"])) {
@@ -41,7 +41,7 @@
                 echo '<a href="login.php" class="navLink">Login</a>';
             }
         ?>
-        <a href="#" class="navLink">Support</a>
+        <a href="support.php" class="navLink">Support</a>
         <a href="https://github.com/MinecraftJohn/crud_app" class="navLink">Source Code</a>
         <?php
             if (!empty($_SESSION["sessionLoginEmail"])) {
@@ -51,7 +51,7 @@
             }
         ?>
     </div>
-    <div class="navMobileLinkBackground" onclick="navMenuFadeout()"></div>
+    <div class="navMenusBackground" onclick="navMenuFadeout()"></div>
     <div class="navAccountContainer">
         <div class="navAccountWhoSigninContainer">
             <p class="navAccountWhoSigninLabel">Logged in as</p>
@@ -77,7 +77,7 @@
                 if (isset($_POST['logout'])) {
                     session_destroy();
                     unset($_SESSION["sessionLoginEmail"]);
-                    echo "<script>window.location.href = 'index.php'</script>";
+                    echo "<script>window.location.href = 'login.php'</script>";
                 }
             ?>
         </form>

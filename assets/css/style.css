@@ -194,6 +194,16 @@ nav {
     display: none;
 }
 
+.navMenusBackground {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
 .navAccountContainer {
     position: absolute;
     top: 96px;
@@ -204,6 +214,7 @@ nav {
     user-select: none;
     min-width: 164px;
     display: none;
+    z-index: 2;
 }
 
 .navAccountWhoSigninContainer {
@@ -291,15 +302,5 @@ nav {
         padding: 2.5% 5%;
         transition: all 0.3s;
         z-index: 2;
-    }
-    .navMobileLinkBackground {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.75);
-        width: 100%;
-        height: 100vh;
-        z-index: 1;
     }
 }

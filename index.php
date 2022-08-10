@@ -31,26 +31,5 @@
             </div>
         </div>
     </div>
-    <div class="homeLearnMore">SCROLL DOWN</div>
-    <div class="aboutSection">
-        <div class="aboutContainer">
-            <div class="aboutVideoContainer">
-                <img src="assets/img/crud_video.png" alt="CRUD Video Thumbnail" class="aboutVideoThumbnail">
-                <a href="https://github.com/MinecraftJohn" target="_blank" rel="noopener noreferrer" class="aboutVideoPlayButton">▶</a>
-                <div class="aboutVideoFooterContainer">
-                    WATCH ABOUT CRUD
-                </div>
-            </div>
-            <div class="aboutTextContainer">
-                <h1 class="aboutTextTitle">What is CRUD?</h1>
-                <p class="aboutTextContexts">
-                    Create, Read, Update and Delete. In computer programming, create, read, update, and delete are 
-                    the four basic operations of persistent storage. CRUD is also sometimes used to describe user 
-                    interface conventions that facilitate viewing, searching, and changing information using 
-                    computer-based forms and reports.
-                    <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank" rel="noopener noreferrer">Wikipedia</a></p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
