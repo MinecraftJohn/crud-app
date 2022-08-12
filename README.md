@@ -9,7 +9,7 @@ Site: https://www.pinoylifecraft.com/<br>
 <img src="https://github.com/MinecraftJohn/crud_app/blob/crud-app/assets/img/crud_app_web_preview.png?raw=true">
 This project is a challenge of my mentor from my on job training company<br>
 <br>
-This is the first programming task that was given to me. This project will collect the data you entered on the registration form and that is my CREATE. Loging in the account you created will be the READ. We will add a profile to this project so that users can UPDATE their account including a deletion(DELETE) and that's how our Create Read Update Delete will be made.
+This is the first programming task that was given to me. This project will collect the data you entered on the registration form and that is my CREATE. Loging in the account you created will be the READ. We will add a profile to this project so that users can UPDATE their account including a deletion(DELETE) and that's how our Create Read Update Delete will be made. You will experience the C.R.U.D live on your home page account just like the picture shown.
 <br>
 <br>
 This project is active and everyday creating a new content to show. Feel free to suggest some challenges to this project on Issues.<br>
