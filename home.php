@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="assets/js/variables.js" defer></script>
     <script src="assets/js/navigation.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
 </head>
 <body>
     <?php include "navigation.php"; ?>
@@ -29,95 +30,214 @@
             </div>
             <div class="tableHeaderContainer">
                 <p style="color: #5f6368; font-weight: 500">Fictitious Employees</p>
-                <button class="navLink navLinkButton">+ &nbsp Add New</button>
+                <button class="navLink navLinkButton" onclick="addNewEmployeeFadein()">+ &nbsp Add New</button>
+                <div class="tableAddNewBackground">
+                    <div class="tableAddNewContainer">
+                        <div class="tableAddNewHeader">
+                            <p class="tableAddNewTitle">Add New Employee</p>
+                            <div class="tableAddNewClose" onclick="addNewEmployeeFadeout()">&times;</div>
+                        </div>
+                        <form class="tableAddNewForm" method="post">
+                            <div class="tableAddNewFormFullNameContainer">
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel">Name</label><br>
+                                    <input type="text" class="tableAddNewFormInput" placeholder="First Name"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[0])" onblur="addNewInputBlur(tableAddNewFormInput[0])">
+                                </div>
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel"></label><br>
+                                    <input type="text" class="tableAddNewFormInput" placeholder="Last Name"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[1])" onblur="addNewInputBlur(tableAddNewFormInput[1])">
+                                </div>
+                            </div>
+                            <div class="tableAddNewFormFullNameContainer">
+                                <div class="tableAddNewFormNameContainer">
+                                    <label for="" class="tableAddNewFormLabel">Date of Birth</label><br>
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[2])" onblur="addNewInputBlur(tableAddNewFormInput[2])">
+                                        <option>Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                </div>
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel"></label><br>
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[3])" onblur="addNewInputBlur(tableAddNewFormInput[3])">
+                                        <option>Day</option>
+                                        <option >1</option>
+                                        <option >2</option>
+                                        <option >3</option>
+                                        <option >4</option>
+                                        <option >5</option>
+                                        <option >6</option>
+                                        <option >7</option>
+                                        <option >8</option>
+                                        <option >9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                        <option>22</option>
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                        <option>26</option>
+                                        <option>27</option>
+                                        <option>28</option>
+                                        <option>29</option>
+                                        <option>30</option>
+                                        <option>31</option>
+                                    </select>
+                                </div>
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel"></label><br>
+                                    <input type="text" class="tableAddNewFormInput" placeholder="Year"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[4])" onblur="addNewInputBlur(tableAddNewFormInput[4])">
+                                </div>
+                            </div>
+                            <div class="tableAddNewFormFullNameContainer">
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel">Gender</label><br>
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[5])" onblur="addNewInputBlur(tableAddNewFormInput[5])">
+                                        <option></option>
+                                        <option value="0">Female</option>
+                                        <option value="1">Male</option>
+                                    </select>
+                                </div>
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel">Phone</label><br>
+                                    <input type="text" class="tableAddNewFormInput" placeholder="09xx xxx xxxx"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[6])" onblur="addNewInputBlur(tableAddNewFormInput[6])">
+                                </div>
+                            </div>
+                            <div class="tableAddNewFormFullNameContainer">
+                                <div class="tableAddNewFormNameContainer">
+                                    <label class="tableAddNewFormLabel">Employee Title</label><br>
+                                    <input type="text" class="tableAddNewFormInput" placeholder="e.g: Supervisor"
+                                    onfocus="addNewInputFocus(tableAddNewFormInput[7])" onblur="addNewInputBlur(tableAddNewFormInput[7])">
+                                </div>
+                            </div>
+                            <div class="app_form_input_msg_container">
+                                <svg class="app_form_input_msg_icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+                                <p class="app_form_input_msg"></p>
+                            </div>
+                            <div class="tableAddNewFormSubmitContainer">
+                                <span class="navLink navLinkButton" onclick="addNewSubmitValidate()">Submit</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="homeTipContainer homeTableContainer">
-                <div class="tableContainer tableContainerTitles">
-                    <p class="tableTitles tableRowName">Name</p>
-                    <p class="tableTitles tableRowBirthdate">Birthdate</p>
-                    <p class="tableTitles tableRowGender">Gender</p>
-                    <p class="tableTitles tableRowPhone">Phone</p>
-                    <p class="tableTitles tableRowTitle">Title</p>
-                    <p class="tableTitles tableRowActions">Actions</p>
-                </div>
-                <div class="tableDataContainer">
-                    <?php 
-                        include "_connect.php";
-                        $selectName = "SELECT * FROM fictitious_employees";
-                        $selectNameResult = mysqli_query($mysqlConnect, $selectName);
-                        $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
+            <div class="homeTableSection">
+                <div class="homeTipContainer homeTableContainer">
+                    <div class="tableContainer tableContainerTitles">
+                        <p class="tableTitles tableRowName">Name</p>
+                        <p class="tableTitles tableRowBirthdate">Birthdate</p>
+                        <p class="tableTitles tableRowGender">Gender</p>
+                        <p class="tableTitles tableRowPhone">Phone</p>
+                        <p class="tableTitles tableRowTitle">Title</p>
+                        <p class="tableTitles tableRowActions">Actions</p>
+                    </div>
+                    <div class="tableDataContainer">
+                        <?php 
+                            include "_connect.php";
+                            $selectName = "SELECT * FROM fictitious_employees";
+                            $selectNameResult = mysqli_query($mysqlConnect, $selectName);
+                            $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
 
-                        for ($i=1; $i <= $selectNameResult->num_rows; $i++) { 
-                            $selectData = "SELECT * FROM fictitious_employees WHERE id=$i;";
-                            $selectDataResult = mysqli_query($mysqlConnect, $selectData);
-                            $selectDataFetch = mysqli_fetch_assoc($selectDataResult);
-                            echo "<div class='tableContainer'>
-                                    <p class='tableData tableRowName'>"
-                                        .$selectDataFetch['fname']." ". $selectDataFetch['lname'].
+                            for ($i=1; $i <= $selectNameResult->num_rows; $i++) { 
+                                $selectData = "SELECT * FROM fictitious_employees WHERE id=$i;";
+                                $selectDataResult = mysqli_query($mysqlConnect, $selectData);
+                                $selectDataFetch = mysqli_fetch_assoc($selectDataResult);
+                                echo "<div class='tableContainer'>
+                                        <p class='tableData tableRowName'>"
+                                            .$selectDataFetch['fname']." ". $selectDataFetch['lname'].
+                                        "</p>
+                                        <p class='tableData tableRowBirthdate'>";
+                                switch ($selectDataFetch['bdmonth']) {
+                                    case 1:
+                                        echo 'Jan';
+                                        break;
+                                    case 2:
+                                        echo 'Feb';
+                                        break;
+                                    case 3:
+                                        echo 'Mar';
+                                        break;
+                                    case 4:
+                                        echo 'Apr';
+                                        break;
+                                    case 5:
+                                        echo 'May';
+                                        break;
+                                    case 6:
+                                        echo 'Jun';
+                                        break;
+                                    case 7:
+                                        echo 'Jul';
+                                        break;
+                                    case 8:
+                                        echo 'Aug';
+                                        break;
+                                    case 9:
+                                        echo 'Sep';
+                                        break;
+                                    case 10:
+                                        echo 'Oct';
+                                        break;
+                                    case 11:
+                                        echo 'Nov';
+                                        break;
+                                    case 12:
+                                        echo 'Dec';
+                                        break;
+                                    
+                                    default:
+                                        echo 'Invalid month!';
+                                        break;
+                                }
+                                echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
+                                        "</p>
+                                        <p class='tableData tableRowGender'>";
+                                if ($selectDataFetch['gender'] == 0) {
+                                    echo 'Female';
+                                } else if ($selectDataFetch['gender'] == 1) {
+                                    echo 'Male';
+                                }
+                                echo "</p>
+                                    <p class='tableData tableRowPhone'>"
+                                        .$selectDataFetch['phone'].
                                     "</p>
-                                    <p class='tableData tableRowBirthdate'>";
-                            switch ($selectDataFetch['bdmonth']) {
-                                case 1:
-                                    echo 'Jan';
-                                    break;
-                                case 2:
-                                    echo 'Feb';
-                                    break;
-                                case 3:
-                                    echo 'Mar';
-                                    break;
-                                case 4:
-                                    echo 'Apr';
-                                    break;
-                                case 5:
-                                    echo 'May';
-                                    break;
-                                case 6:
-                                    echo 'Jun';
-                                    break;
-                                case 7:
-                                    echo 'Jul';
-                                    break;
-                                case 8:
-                                    echo 'Aug';
-                                    break;
-                                case 9:
-                                    echo 'Sep';
-                                    break;
-                                case 10:
-                                    echo 'Oct';
-                                    break;
-                                case 11:
-                                    echo 'Nov';
-                                    break;
-                                case 12:
-                                    echo 'Dec';
-                                    break;
-                                
-                                default:
-                                    echo 'Invalid month!';
-                                    break;
-                            }
-                            echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
+                                    <p class='tableData tableRowTitle'>"
+                                        .$selectDataFetch['title'].
                                     "</p>
-                                    <p class='tableData tableRowGender'>";
-                            if ($selectDataFetch['gender'] == 0) {
-                                echo 'Female';
-                            } else if ($selectDataFetch['gender'] == 1) {
-                                echo 'Male';
+                                    <p class='tableData tableRowActions'>✎ 🗑</p>
+                                    </div>";
                             }
-                            echo "</p>
-                                <p class='tableData tableRowPhone'>"
-                                    .$selectDataFetch['phone'].
-                                "</p>
-                                <p class='tableData tableRowTitle'>"
-                                    .$selectDataFetch['title'].
-                                "</p>
-                                <p class='tableData tableRowActions'>✎ 🗑</p>
-                                </div>";
-                        }
-                    ?>
+                        ?>
+                    </div>
                 </div>
+                <div class="tableRowActionsMobileBackground"></div>
             </div>
         </div>
     </div>

@@ -33,6 +33,7 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -76,10 +77,96 @@
     text-align: center;
     margin: 32px 0 64px;
 }
+
 .tableHeaderContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.tableAddNewBackground {
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    z-index: 3;
+}
+
+.tableAddNewContainer {
+    background-color: #fff;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 6px;
+    z-index: 4;
+}
+
+.tableAddNewHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    color: #1a73e8;
+    font-weight: 500;
+    border-bottom: 1px solid #dadce0;
+}
+
+.tableAddNewClose {
+    color: #5f6368;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    line-height: 18px;
+    padding: 0 5px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.tableAddNewClose:hover {
+    color: #fff;
+    background-color: rgba(232, 17, 35);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.tableAddNewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.tableAddNewFormFullNameContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tableAddNewFormSubmitContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tableAddNewFormNameContainer {
+    width: 100%;
+}
+
+.tableAddNewFormLabel {
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.tableAddNewFormInput {
+    width: 100%;
+    height: 38px;
+    border-radius: 6px;
+    border: #dadce0 1px solid;
+    outline: none;
+    padding: 8px;
 }
 
 .homeTipContainer {
@@ -96,6 +183,11 @@
 .tableContainerTitles {
     background-color: #fff !important;
 }
+
+.homeTableSection {
+    position: relative;
+}
+
 .homeTableContainer {
     margin: 16px 0 32px;
     padding: 36px 16px 22px;
@@ -108,6 +200,7 @@
     padding: 0 16px;
     border-radius: 6px;
 }
+
 .tableContainer:hover {
     background-color: rgba(26, 115, 232, 0.08);
 }
@@ -117,6 +210,11 @@
     font-weight: 500;
     margin-bottom: 24px;
 }
+
+.tableRowActionsMobileBackground {
+    display: none;
+}
+
 .tableDataContainer {
     display: flex;
     flex-direction: column-reverse;
@@ -126,24 +224,30 @@
     text-align: left;
     line-height: 42px;
 }
+
 .tableRowName {
     width: 132px;
 }
+
 .tableRowBirthdate {
     width: 92px;
 }
+
 .tableRowGender {
     width: 48px;
 }
+
 .tableRowPhone {
     width: 84px;
 }
+
 .tableRowTitle {
     width: 142px;
 }
+
 .tableRowActions {
     width: 64px;
-    text-align: center;
+    text-align: right;
 }
 
 @media screen and (max-width: 680px) {
@@ -175,7 +279,7 @@
         gap: 32px;
     }
     .homeTableContainer {
-        overflow: scroll;
+        overflow-x: scroll;
         padding: 22px 0;
     }
     .tableContainer {
@@ -202,7 +306,18 @@
         position: sticky;
         top: 0;
         right: 12px;
+        z-index: 2;
+    }
+    .tableRowActionsMobileBackground {
+        display: block;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        width: 78px;
+        height: calc(100% - 2px);
         background-color: #fff;
-        box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+        box-shadow: -4px 0 5px 0 rgb(64 60 67 / 16%);
+        border-radius: 0 6px 6px 0;
+        z-index: 1;
     }
 }

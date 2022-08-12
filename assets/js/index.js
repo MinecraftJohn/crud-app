@@ -47,7 +47,7 @@ function formSubmitValidate() {
         formInputLabel[0].style.color = "#d93025"
         formInput[0].style.border = "#d93025 solid 1px"
         formInputMessage[0].style.display = "flex"
-        formInputMessageText[0].innerHTML = "Make sure every first letter is capital"
+        formInputMessageText[0].innerHTML = "Make sure every first letter is capital, numbers not allowed"
     } else if (!formInput[1].value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
         formInputLabel[1].style.color = "#d93025"
         formInput[1].style.border = "#d93025 solid 1px"
