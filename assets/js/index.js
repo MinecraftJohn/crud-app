@@ -28,41 +28,30 @@ formSubmit[0].addEventListener("keypress", function(event) {
 
 // Form Submit Validation
 function formSubmitValidate() {
+
+    function registerFormSubmitStyle(inputNumber, errorMessage) {
+        formInputLabel[inputNumber].style.color = "#d93025"
+        formInput[inputNumber].style.border = "#d93025 solid 1px"
+        formInputMessage[inputNumber].style.display = "flex"
+        formInputMessageText[inputNumber].innerHTML = errorMessage
+    }
+
     if (formInput[0].value == "") {
-        formInputLabel[0].style.color = "#d93025"
-        formInput[0].style.border = "#d93025 solid 1px"
-        formInputMessage[0].style.display = "flex"
-        formInputMessageText[0].innerHTML = "This field is required"
+        registerFormSubmitStyle(0, "This field is required")
     } else if (formInput[1].value == "") {
-        formInputLabel[1].style.color = "#d93025"
-        formInput[1].style.border = "#d93025 solid 1px"
-        formInputMessage[1].style.display = "flex"
-        formInputMessageText[1].innerHTML = "This field is required"
+        registerFormSubmitStyle(1, "This field is required")
     } else if (formInput[2].value == "") {
-        formInputLabel[2].style.color = "#d93025"
-        formInput[2].style.border = "#d93025 solid 1px"
-        formInputMessage[2].style.display = "flex"
-        formInputMessageText[2].innerHTML = "This field is required"
+        registerFormSubmitStyle(2, "This field is required")
     } else if (!formInput[0].value.match(/([A-ZÑ][a-z-ñ.]+)$/)) {
-        formInputLabel[0].style.color = "#d93025"
-        formInput[0].style.border = "#d93025 solid 1px"
-        formInputMessage[0].style.display = "flex"
-        formInputMessageText[0].innerHTML = "Make sure every first letter is capital, numbers not allowed"
+        registerFormSubmitStyle(0, "Make sure every first letter is capital, numbers not allowed")
     } else if (!formInput[1].value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-        formInputLabel[1].style.color = "#d93025"
-        formInput[1].style.border = "#d93025 solid 1px"
-        formInputMessage[1].style.display = "flex"
-        formInputMessageText[1].innerHTML = "Invalid email"
+        registerFormSubmitStyle(1, "Invalid email address")
     } else if (!formInput[2].value.match(/^[0-9]*$/)) {
-        formInputLabel[2].style.color = "#d93025"
-        formInput[2].style.border = "#d93025 solid 1px"
-        formInputMessage[2].style.display = "flex"
-        formInputMessageText[2].innerHTML = "Only numbers are allowed"
+        registerFormSubmitStyle(2, "Only numbers are allowed")
     } else if (formInput[2].value.length != 11) {
-        formInputLabel[2].style.color = "#d93025"
-        formInput[2].style.border = "#d93025 solid 1px"
-        formInputMessage[2].style.display = "flex"
-        formInputMessageText[2].innerHTML = "Invalid phone number"
+        registerFormSubmitStyle(2, "Invalid phone number")
+    } else if (!formInput[2].value.match(/(09[0-9]{9})/)) {
+        registerFormSubmitStyle(2, "Invalid phone number")
     } else {
         formSubmitButton[0].click()
     }

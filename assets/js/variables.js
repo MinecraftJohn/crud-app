@@ -17,3 +17,4 @@ var navAccountContainer = document.getElementsByClassName("navAccountContainer")
 var tableAddNewBackground = document.getElementsByClassName("tableAddNewBackground")[0]
 var tableAddNewFormInput = document.getElementsByClassName("tableAddNewFormInput")
 var tableAddNewFormFullNameContainer = document.getElementsByClassName("tableAddNewFormFullNameContainer")
+var addNewSubmitButton = document.getElementsByClassName("addNewSubmitButton")[0]

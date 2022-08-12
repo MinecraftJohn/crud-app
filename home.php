@@ -3,6 +3,7 @@
     if (empty($_SESSION["sessionLoginEmail"])) {
         header("Location: index.php");
     }
+    include "_connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,19 +42,19 @@
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel">Name</label><br>
-                                    <input type="text" class="tableAddNewFormInput" placeholder="First Name"
+                                    <input type="text" class="tableAddNewFormInput" placeholder="First Name" name="addNewFirstName"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[0])" onblur="addNewInputBlur(tableAddNewFormInput[0])">
                                 </div>
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel"></label><br>
-                                    <input type="text" class="tableAddNewFormInput" placeholder="Last Name"
+                                    <input type="text" class="tableAddNewFormInput" placeholder="Last Name" name="addNewLastName"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[1])" onblur="addNewInputBlur(tableAddNewFormInput[1])">
                                 </div>
                             </div>
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label for="" class="tableAddNewFormLabel">Date of Birth</label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthMonth"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[2])" onblur="addNewInputBlur(tableAddNewFormInput[2])">
                                         <option>Month</option>
                                         <option value="1">January</option>
@@ -72,7 +73,7 @@
                                 </div>
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel"></label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthDay"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[3])" onblur="addNewInputBlur(tableAddNewFormInput[3])">
                                         <option>Day</option>
                                         <option >1</option>
@@ -110,30 +111,30 @@
                                 </div>
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel"></label><br>
-                                    <input type="text" class="tableAddNewFormInput" placeholder="Year"
+                                    <input type="text" class="tableAddNewFormInput" placeholder="Year" name="addNewDateofBirthYear"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[4])" onblur="addNewInputBlur(tableAddNewFormInput[4])">
                                 </div>
                             </div>
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel">Gender</label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect"
+                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewGender"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[5])" onblur="addNewInputBlur(tableAddNewFormInput[5])">
-                                        <option></option>
+                                        <option value="2"></option>
                                         <option value="0">Female</option>
                                         <option value="1">Male</option>
                                     </select>
                                 </div>
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel">Phone</label><br>
-                                    <input type="text" class="tableAddNewFormInput" placeholder="09xx xxx xxxx"
+                                    <input type="text" class="tableAddNewFormInput" placeholder="09xx xxx xxxx" name="addNewPhone"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[6])" onblur="addNewInputBlur(tableAddNewFormInput[6])">
                                 </div>
                             </div>
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel">Employee Title</label><br>
-                                    <input type="text" class="tableAddNewFormInput" placeholder="e.g: Supervisor"
+                                    <input type="text" class="tableAddNewFormInput" placeholder="e.g: Supervisor" name="addNewEmployeeTitle"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[7])" onblur="addNewInputBlur(tableAddNewFormInput[7])">
                                 </div>
                             </div>
@@ -142,8 +143,35 @@
                                 <p class="app_form_input_msg"></p>
                             </div>
                             <div class="tableAddNewFormSubmitContainer">
-                                <span class="navLink navLinkButton" onclick="addNewSubmitValidate()">Submit</span>
+                                <span class="navLink navLinkButton" style="text-align: center" onclick="addNewSubmitValidate()" tabindex="0">Submit</span>
+                                <button class="addNewSubmitButton" name="addNewSubmit" style="display: none">Add New Submit</button>
                             </div>
+                            <?php
+                                if (isset($_POST['addNewSubmit'])) {
+                                    $addNewOwner = $_SESSION['sessionLoginEmail'];
+                                    $addNewFirstName = $_POST['addNewFirstName'];
+                                    $addNewLastName = $_POST['addNewLastName'];
+                                    $addNewDateofBirthMonth = $_POST['addNewDateofBirthMonth'];
+                                    $addNewDateofBirthDay = $_POST['addNewDateofBirthDay'];
+                                    $addNewDateofBirthYear = $_POST['addNewDateofBirthYear'];
+                                    $addNewGender = $_POST['addNewGender'];
+                                    $addNewPhone = $_POST['addNewPhone'];
+                                    $addNewEmployeeTitle = $_POST['addNewEmployeeTitle'];
+
+                                    
+                                    $addNewSelection = "SELECT phone FROM fictitious_employees WHERE phone='$addNewPhone'";
+                                    $addNewSelectionResult = mysqli_query($mysqlConnect, $addNewSelection);
+
+                                    if (!$addNewSelectionResult->num_rows > 0) {
+                                        $addNewInsertData = "INSERT INTO fictitious_employees (owner, fname, lname, bdmonth, bdday, bdyear, gender, phone, title)
+                                                             VALUES                           ('$addNewOwner', '$addNewFirstName', '$addNewLastName', '$addNewDateofBirthMonth', '$addNewDateofBirthDay', '$addNewDateofBirthYear', '$addNewGender', '$addNewPhone', '$addNewEmployeeTitle');";
+                                        mysqli_query($mysqlConnect, $addNewInsertData);
+                                        echo "<script>console.log('Successfully Added!')</script>";
+                                    } else {
+                                        echo $addNewPhone;
+                                    }
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>
@@ -160,7 +188,6 @@
                     </div>
                     <div class="tableDataContainer">
                         <?php 
-                            include "_connect.php";
                             $selectName = "SELECT * FROM fictitious_employees";
                             $selectNameResult = mysqli_query($mysqlConnect, $selectName);
                             $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
@@ -223,6 +250,8 @@
                                     echo 'Female';
                                 } else if ($selectDataFetch['gender'] == 1) {
                                     echo 'Male';
+                                } else {
+                                    echo 'Others';
                                 }
                                 echo "</p>
                                     <p class='tableData tableRowPhone'>"

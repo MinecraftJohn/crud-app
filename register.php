@@ -60,7 +60,7 @@
                 <div class="app_form_submit_container">
                     <span class="app_form_switch_form">Already have an account? <a href="login.php">Login</a></span>
                     <span class="app_form_submit" onclick="formSubmitValidate()" tabindex="0">Register</span>
-                    <button class="app_form_submit_button" name="registerSubmit" style="display: none;"></button>
+                    <button class="app_form_submit_button" name="registerSubmit" style="display: none"></button>
                 </div>
                 <?php
                     include "_connect.php";

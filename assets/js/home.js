@@ -34,11 +34,42 @@ function addNewInputBlur(tableAddNewFormInput) {
 
 // ADD NEW SUBMIT VALIDATOR FUNCTIONS
 function addNewSubmitValidate() {
-    if (tableAddNewFormInput[0].value == "") {
+
+    function addNewErrorMessage(errorMessage, inputNumber) {
         formInputMessage[0].style.display = "flex"
-        formInputMessageText[0].innerHTML = "This First Name field is required"
-        tableAddNewFormInput[0].style.border = "#dadce0 solid 1px"
+        formInputMessageText[0].innerHTML = errorMessage
+        tableAddNewFormInput[inputNumber].style.border = "#d93025 solid 1px"
+    }
+
+    if (tableAddNewFormInput[0].value == "") {
+        addNewErrorMessage("First Name field is required", 0)
+    } else if (!tableAddNewFormInput[0].value.match(/([A-ZÑ][a-z-ñ.]+)$/)) {
+        addNewErrorMessage("Make sure first letter is capital on First Name field", 0)
+    } else if (tableAddNewFormInput[1].value == "") {
+        addNewErrorMessage("Last Name field is required", 1)
+    } else if (!tableAddNewFormInput[1].value.match(/([A-ZÑ][a-z-ñ.]+)$/)) {
+        addNewErrorMessage("Make sure first letter is capital on Last Name field", 1)
+    } else if (tableAddNewFormInput[2].value == "Month") {
+        addNewErrorMessage("Your date of birth is invalid", 2)
+    } else if (tableAddNewFormInput[3].value == "Day") {
+        addNewErrorMessage("Your date of birth is invalid", 3)
+    } else if (tableAddNewFormInput[4].value == "") {
+        addNewErrorMessage("Date of Birth (Year) field is required", 4)
+    } else if (tableAddNewFormInput[4].value < 1957 || tableAddNewFormInput[4].value > 2003) {
+        addNewErrorMessage("Employee must be around 18-65 years old only", 4)
+    } else if (tableAddNewFormInput[6].value == "") {
+        addNewErrorMessage("Phone number is required", 6)
+    } else if (!tableAddNewFormInput[6].value.match(/^[0-9]*$/)) {
+        addNewErrorMessage("Only numbers are allowed", 6)
+    } else if (tableAddNewFormInput[6].value.length != 11) {
+        addNewErrorMessage("Invalid phone number", 6)
+    } else if (!tableAddNewFormInput[6].value.match(/(09[0-9]{9})/)) {
+        addNewErrorMessage("Invalid phone number", 6)
+    } else if (tableAddNewFormInput[7].value == "") {
+        addNewErrorMessage("Employee title is required", 7)
+    } else if (!tableAddNewFormInput[7].value.match(/([A-ZÑ][a-z-ñ.]+)$/)) {
+        addNewErrorMessage("Make sure first letter is capital on Employee Title field", 7)
     } else {
-        formInputMessage[0].style.display = "none"
+        addNewSubmitButton.click()
     }
 }
