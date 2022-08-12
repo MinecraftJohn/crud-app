@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php include "navigation.php"; ?>
-    <div class="homeSection">
+    <div class="homeSection" style="height: calc(90vh - 80px)">
         <div class="homeContainer">
             <div class="homeBox">
                 <h1 class="homeBoxTitle">CRUD APP</h1>

@@ -5,12 +5,16 @@ function addNewEmployeeFadein() {
 
 function addNewEmployeeFadeout() {
     tableAddNewBackground.style.display = "none"
+    formInputMessage[0].style.display = "none"
     for (let i = 0; i <= 7; i++) {
         if (i == 2) {
             tableAddNewFormInput[i].value = "Month"
             tableAddNewFormInput[i].style.border = "#dadce0 solid 1px"
         } else if (i == 3) {
             tableAddNewFormInput[i].value = "Day"
+            tableAddNewFormInput[i].style.border = "#dadce0 solid 1px"
+        } else if (i == 5) {
+            tableAddNewFormInput[i].value = 2
             tableAddNewFormInput[i].style.border = "#dadce0 solid 1px"
         } else {
             tableAddNewFormInput[i].value = ""

@@ -54,7 +54,7 @@
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label for="" class="tableAddNewFormLabel">Date of Birth</label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthMonth"
+                                    <select class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthMonth"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[2])" onblur="addNewInputBlur(tableAddNewFormInput[2])">
                                         <option>Month</option>
                                         <option value="1">January</option>
@@ -73,18 +73,18 @@
                                 </div>
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel"></label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthDay"
+                                    <select class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewDateofBirthDay"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[3])" onblur="addNewInputBlur(tableAddNewFormInput[3])">
                                         <option>Day</option>
-                                        <option >1</option>
-                                        <option >2</option>
-                                        <option >3</option>
-                                        <option >4</option>
-                                        <option >5</option>
-                                        <option >6</option>
-                                        <option >7</option>
-                                        <option >8</option>
-                                        <option >9</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
                                         <option>10</option>
                                         <option>11</option>
                                         <option>12</option>
@@ -118,9 +118,9 @@
                             <div class="tableAddNewFormFullNameContainer">
                                 <div class="tableAddNewFormNameContainer">
                                     <label class="tableAddNewFormLabel">Gender</label><br>
-                                    <select name="" id="" class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewGender"
+                                    <select class="tableAddNewFormInput tableAddNewFormInputSelect" name="addNewGender"
                                     onfocus="addNewInputFocus(tableAddNewFormInput[5])" onblur="addNewInputBlur(tableAddNewFormInput[5])">
-                                        <option value="2"></option>
+                                        <option value="2">Select</option>
                                         <option value="0">Female</option>
                                         <option value="1">Male</option>
                                     </select>
@@ -143,7 +143,7 @@
                                 <p class="app_form_input_msg"></p>
                             </div>
                             <div class="tableAddNewFormSubmitContainer">
-                                <span class="navLink navLinkButton" style="text-align: center" onclick="addNewSubmitValidate()" tabindex="0">Submit</span>
+                                <span class="navLink navLinkButton" onclick="addNewSubmitValidate()" tabindex="0">Submit</span>
                                 <button class="addNewSubmitButton" name="addNewSubmit" style="display: none">Add New Submit</button>
                             </div>
                             <?php
@@ -168,7 +168,20 @@
                                         mysqli_query($mysqlConnect, $addNewInsertData);
                                         echo "<script>console.log('Successfully Added!')</script>";
                                     } else {
-                                        echo $addNewPhone;
+                                        echo "<script>
+                                                document.getElementsByClassName('tableAddNewBackground')[0].style.display = 'flex'
+                                                document.getElementsByClassName('tableAddNewFormInput')[0].value = '$addNewFirstName'
+                                                document.getElementsByClassName('tableAddNewFormInput')[1].value = '$addNewLastName'
+                                                document.getElementsByClassName('tableAddNewFormInput')[2].value = '$addNewDateofBirthMonth'
+                                                document.getElementsByClassName('tableAddNewFormInput')[3].value = '$addNewDateofBirthDay'
+                                                document.getElementsByClassName('tableAddNewFormInput')[4].value = '$addNewDateofBirthYear'
+                                                document.getElementsByClassName('tableAddNewFormInput')[5].value = '$addNewGender'
+                                                document.getElementsByClassName('tableAddNewFormInput')[6].value = '$addNewPhone'
+                                                document.getElementsByClassName('tableAddNewFormInput')[7].value = '$addNewEmployeeTitle'
+                                                document.getElementsByClassName('app_form_input_msg_container')[0].style.display = 'flex'
+                                                document.getElementsByClassName('app_form_input_msg')[0].innerHTML = 'Phone number already exist'
+                                                document.getElementsByClassName('tableAddNewFormInput')[6].style.border = '#d93025 solid 1px'
+                                              </script>";
                                     }
                                 }
                             ?>
@@ -240,7 +253,7 @@
                                         break;
                                     
                                     default:
-                                        echo 'Invalid month!';
+                                        echo 'Err';
                                         break;
                                 }
                                 echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
