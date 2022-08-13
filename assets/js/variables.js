@@ -7,14 +7,14 @@ var formSubmit = document.getElementsByClassName("app_form_submit")
 var formSubmitButton = document.getElementsByClassName("app_form_submit_button")
 
 // NAVIGATION VARIABLES
-var navMobileLinkContainer = document.getElementsByClassName("navMobileLinkContainer")[0]
-var navMobileMenuIcon = document.getElementsByClassName("navMobileMenuIcon")[0]
-var navMenusBackground = document.getElementsByClassName("navMenusBackground")[0]
-var navLinkButton = document.getElementsByClassName("navLinkButton")[0]
-var navAccountContainer = document.getElementsByClassName("navAccountContainer")[0]
+var navMobileLinkContainer = document.getElementsByClassName("navMobileLinkContainer")
+var navMobileMenuIcon = document.getElementsByClassName("navMobileMenuIcon")
+var navMenusBackground = document.getElementsByClassName("navMenusBackground")
+var navLinkButton = document.getElementsByClassName("navLinkButton")
+var navAccountContainer = document.getElementsByClassName("navAccountContainer")
 
 // HOME ADD NEW VARIABLES
-var tableAddNewBackground = document.getElementsByClassName("tableAddNewBackground")[0]
+var tableAddNewBackground = document.getElementsByClassName("tableAddNewBackground")
 var tableAddNewFormInput = document.getElementsByClassName("tableAddNewFormInput")
 var tableAddNewFormFullNameContainer = document.getElementsByClassName("tableAddNewFormFullNameContainer")
-var addNewSubmitButton = document.getElementsByClassName("addNewSubmitButton")[0]
+var tableAddNewContainer = document.getElementsByClassName("tableAddNewContainer")

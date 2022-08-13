@@ -1,4 +1,4 @@
-<nav>
+<nav class="navSticky">
     <div class="navSection">
         <div class="navContainer">
             <a href="index.php" class="navLogoContainer" title="Create Read Update and Delete">

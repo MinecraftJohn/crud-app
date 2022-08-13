@@ -18,14 +18,6 @@ function registerInputBlur(formInputLabel, formInput, formInputMessage) {
     }
 }
 
-// Shortcut Event Trigger Submit Form
-formSubmit[0].addEventListener("keypress", function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        formSubmitButton[0].click();
-    }
-});
-
 // Form Submit Validation
 function formSubmitValidate() {
 

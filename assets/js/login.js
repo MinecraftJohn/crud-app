@@ -5,6 +5,7 @@ function loginInputFocus(formInputLabel, formInput) {
     formInputLabel.style.color = "#1a73e8"
     formInput.style.border = "#1a73e8 solid 1px"
 }
+
 function loginInputBlur(formInputLabel, formInput, formInputMessage) {
     if (formInput.value == "") {
         formInputLabel.style.fontSize = "13px"

@@ -79,7 +79,7 @@
                             mysqli_query($mysqlConnect, $registerInsertData);
                             echo "<script>
                                     document.getElementsByClassName('app_form_message_container')[0].style.display = 'block';
-                                    document.getElementsByClassName('app_form_message_container')[0].style.color = '#00c851';
+                                    document.getElementsByClassName('app_form_message_container')[0].style.color = '#04844b';
                                     document.getElementsByClassName('app_form_message_container')[0].innerHTML = 'Registered successfully. Please login.';
                                   </script>";
                         } else {

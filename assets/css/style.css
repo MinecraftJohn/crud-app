@@ -132,8 +132,9 @@ body {
     background-color: rgb(44, 125, 231);
 }
 
-nav {
-    position: relative;
+.navSticky {
+    position: sticky;
+    top: 0;
 }
 
 .navSection {
@@ -142,9 +143,9 @@ nav {
     height: 80px;
     padding: 0 64px;
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-    position: sticky;
     display: flex;
     align-items: center;
+    position: relative;
     z-index: 10;
 }
 
@@ -266,7 +267,7 @@ nav {
     color: #1a73e8;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .navSection {
         padding: 0 5%;
     }
@@ -296,9 +297,6 @@ nav {
         transition: all 0.3s;
         z-index: 9;
     }
-}
-
-@media screen and (max-width: 680px) {
     .app_form_title {
         text-align: center;
     }

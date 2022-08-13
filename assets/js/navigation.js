@@ -1,29 +1,29 @@
 function navMenuFadein() {
-    navMobileLinkContainer.style.top = "80px"
-    navMobileMenuIcon.setAttribute("onclick", "navMenuFadeout()")
-    navMenusBackground.style.display = "block"
-    navMenusBackground.style.backgroundColor = "rgba(0, 0, 0, 0.75)"
+    navMobileLinkContainer[0].style.top = "80px"
+    navMobileMenuIcon[0].setAttribute("onclick", "navMenuFadeout()")
+    navMenusBackground[0].style.display = "block"
+    navMenusBackground[0].style.backgroundColor = "rgba(0, 0, 0, 0.75)"
 }
 
 function navMenuFadeout() {
-    navMobileLinkContainer.style.top = "-240px"
-    navMobileMenuIcon.setAttribute("onclick", "navMenuFadein()")
-    navLinkButton.setAttribute("onclick", "navAccountMenuFadein()")
-    navMenusBackground.style.display = "none"
-    navAccountContainer.style.display = "none"
+    navMobileLinkContainer[0].style.top = "-240px"
+    navMobileMenuIcon[0].setAttribute("onclick", "navMenuFadein()")
+    navLinkButton[0].setAttribute("onclick", "navAccountMenuFadein()")
+    navMenusBackground[0].style.display = "none"
+    navAccountContainer[0].style.display = "none"
 }
 
 // Account Menu Functions
 function navAccountMenuFadein() {
-    navLinkButton.setAttribute("onclick", "navAccountMenuFadeout()")
-    navAccountContainer.style.display = "block"
-    navMenusBackground.style.display = "block"
-    navMenusBackground.style.backgroundColor = "transparent"
+    navLinkButton[0].setAttribute("onclick", "navAccountMenuFadeout()")
+    navAccountContainer[0].style.display = "block"
+    navMenusBackground[0].style.display = "block"
+    navMenusBackground[0].style.backgroundColor = "transparent"
 }
 
 function navAccountMenuFadeout() {
-    navLinkButton.setAttribute("onclick", "navAccountMenuFadein()")
-    navAccountContainer.style.display = "none"
-    navMenusBackground.style.display = "none"
-    navAccountContainer.style.display = "none"
+    navLinkButton[0].setAttribute("onclick", "navAccountMenuFadein()")
+    navAccountContainer[0].style.display = "none"
+    navMenusBackground[0].style.display = "none"
+    navAccountContainer[0].style.display = "none"
 }
