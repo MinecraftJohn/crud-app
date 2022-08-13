@@ -6,7 +6,7 @@
 <br>
 Site: https://www.pinoylifecraft.com/<br>
 <br>
-<img src="https://github.com/MinecraftJohn/crud_app/blob/crud-app/assets/img/crud_app_web_preview.png?raw=true">
+<img src="https://github.com/MinecraftJohn/crud_app/blob/crud-app/assets/img/crud_app_web_preview_1.png?raw=true">
 This project is a challenge of my mentor from my on job training company<br>
 <br>
 This is the first programming task that was given to me. This project will collect the data you entered on the registration form and that is my CREATE. Loging in the account you created will be the READ. We will add a profile to this project so that users can UPDATE their account including a deletion(DELETE) and that's how our Create Read Update Delete will be made.
