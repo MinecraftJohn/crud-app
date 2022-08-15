@@ -1,0 +1,80 @@
+:root {
+    --bgDarkWhite: #fbfbfb;
+    --bgWhite: #fff;
+    --bgBlue: #1a73e8;
+    --bgHoverLightBlue: #2c7de7;
+    --bgHoverTransparentBlue: #1a73e814;
+    --textBlue: #1a73e8;
+    --textGray: #5f6368;
+    --textWhite: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background: var(--bgDarkWhite);
+    color: var(--textGray);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--textBlue);
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box_shadow {
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.border_radius {
+    border-radius: 6px;
+}
+
+.border_container {
+    border: 1px solid #dadce0;
+}
+
+.primary_button {
+    padding: 10px 22px;
+    color: var(--textGray);
+}
+
+.primary_button:hover {
+    background: var(--bgHoverTransparentBlue);
+}
+
+.secondary_button {
+    background: var(--bgBlue);
+    color: var(--textWhite);
+    padding: 10px 22px;
+}
+
+.secondary_button:hover {
+    background: var(--bgHoverLightBlue);
+}
+
+.responsive_width {
+    width: 1000px;
+    max-width: 95%;
+}
