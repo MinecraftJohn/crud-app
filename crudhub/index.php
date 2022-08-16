@@ -27,7 +27,30 @@
         </p>
     </section>
     <section>
-        <div>test</div>
+        <div class="table_title_container responsive_width">
+            <h3 class="table_title_text">Fictitious Employees</h3>
+            <button class="secondary_button border_radius">+ &nbsp Add New</button>
+        </div>
+        <table class="table_content_container responsive_width border_radius border_container">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Eren Yeager</td>
+                <td>eren.yeager@gmail.com</td>
+                <td>09123456789</td>
+                <td>Edit | Delete</td>
+            </tr>
+            <tr>
+                <td>Mikasa Ackerman</td>
+                <td>mikasa.ackerman@yahoo.com</td>
+                <td>09987654321</td>
+                <td>Edit | Delete</td>
+            </tr>
+        </table>
     </section>
 </body>
 </html>

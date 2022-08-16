@@ -10,6 +10,7 @@
         <div class="nav_container">
             <a href="index.php" class="primary_button border_radius">Home</a>
             <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius">About</a>
+            <a href="#" class="primary_button border_radius">Support</a>
             <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius">Source Code</a>
         </div>
         <svg width="32" height="32" viewBox="0 0 32 32" class="nav_icon border_radius" onclick="navMenuFadein()">
@@ -20,5 +21,6 @@
 <div class="nav_mobile_container">
     <a href="index.php" class="primary_button border_radius">Home</a>
     <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius">About</a>
+    <a href="#" class="primary_button border_radius">Support</a>
     <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius">Source Code</a>
 </div>

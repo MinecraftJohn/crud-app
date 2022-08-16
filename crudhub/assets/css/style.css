@@ -3,7 +3,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 0 2.5%;
+    padding: 0 5%;
 }
 
 .nav_container {
@@ -56,9 +56,23 @@
 }
 
 .tip_container {
+    background: var(--bgWhite);
     text-align: center;
     padding: 16px;
-    margin-bottom: 64px;
+}
+.table_title_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 64px;
+}
+.table_title_text {
+    font-size: 16px;
+    font-weight: 500;
+}
+.table_content_container {
+    margin: 16px 0 32px;
 }
 
 @media screen and (max-width: 720px) {
