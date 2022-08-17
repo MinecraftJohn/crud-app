@@ -1,12 +1,12 @@
 :root {
-    --bgDarkWhite: #fbfbfb;
-    --bgWhite: #fff;
-    --bgBlue: #1a73e8;
-    --bgHoverLightBlue: #2c7de7;
-    --bgHoverTransparentBlue: #1a73e814;
-    --textBlue: #1a73e8;
-    --textGray: #5f6368;
-    --textWhite: #fff;
+    --background_color: #fbfbfb;
+    --background_transparent: #000000bf;
+    --white: #fff;
+    --blue: #1a73e8;
+    --blue_highlight: #2c7de7;
+    --blue_transparent: #1a73e814;
+    --gray: #5f6368;
+    --red: #e81123;
 }
 
 * {
@@ -18,13 +18,13 @@
 }
 
 body {
-    background: var(--bgDarkWhite);
-    color: var(--textGray);
+    background: var(--background_color);
+    color: var(--gray);
     -webkit-tap-highlight-color: transparent;
 }
 
 a {
-    color: var(--textBlue);
+    color: var(--blue);
     text-decoration: none;
 }
 
@@ -68,19 +68,19 @@ button {
 
 .primary_button {
     padding: 10px 22px;
-    color: var(--textGray);
+    color: var(--gray);
 }
 
 .primary_button:hover {
-    background: var(--bgHoverTransparentBlue);
+    background: var(--blue_transparent);
 }
 
 .secondary_button {
-    background: var(--bgBlue);
-    color: var(--textWhite);
+    background: var(--blue);
+    color: var(--white);
     padding: 10px 22px;
 }
 
 .secondary_button:hover {
-    background: var(--bgHoverLightBlue);
+    background: var(--blue_highlight);
 }
