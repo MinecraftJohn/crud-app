@@ -43,6 +43,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 }
+
 button {
     border: none;
     cursor: pointer;
@@ -59,6 +60,7 @@ button {
 .border_container {
     border: 1px solid #dadce0;
 }
+
 .responsive_width {
     width: 1000px;
     max-width: 90%;
