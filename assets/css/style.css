@@ -201,7 +201,6 @@
     color: var(--white);
     background: var(--red);
     border-radius: 3px;
-    cursor: pointer;
 }
 
 .form_body {
@@ -248,7 +247,7 @@
 }
 
 .form_error_icon {
-    fill: #d93025;
+    fill: var(--red);
     width: 16px;
     height: 16px;
     position: absolute;
@@ -257,7 +256,7 @@
 }
 
 .form_error_msg {
-    color: #d93025;
+    color: var(--red);
     font-size: 12px;
     margin: 0 0 0 18px;
 }
@@ -265,6 +264,12 @@
 .form_submit_container {
     display: flex;
     justify-content: flex-end;
+}
+#add_submit_button {
+    display: none;
+}
+#edit_submit_button {
+    display: none;
 }
 
 @media screen and (max-width: 720px) {

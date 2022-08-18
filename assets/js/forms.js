@@ -5,6 +5,8 @@ function formContainerTransform(scale) {
 
 function openAddNewForm() {
     formBackground[0].style.display = "flex";
+    formTitle[0].innerHTML = "Add Employee";
+    formAddSubmitButton.style.display = "block";
 
     function scaleForm() {
         formContainerTransform(1.1);
@@ -17,7 +19,7 @@ function openAddNewForm() {
     setTimeout(scaleForm, 0);
 }
 
-function closeAddNewForm() {
+function closeAddEditForm() {
     formContainerTransform(1.1);
 
     function scaleFormZero() {
@@ -25,6 +27,21 @@ function closeAddNewForm() {
 
         function removeFormBackground() {
             formBackground[0].style.display = "none";
+            formErrorContainer[0].style.display = "none";
+            formAddSubmitButton.style.display = "none";
+            formEditSubmitButton.style.display = "none";
+            for (let i = 0; i <= 6; i++) {
+                if (i == 2) {
+                    formBodyInputBox[i].value = "Month";
+                    formBodyInputBox[i].style.border = "#dadce0 solid 1px";
+                } else if (i == 3) {
+                    formBodyInputBox[i].value = "Day";
+                    formBodyInputBox[i].style.border = "#dadce0 solid 1px";
+                } else {
+                    formBodyInputBox[i].value = "";
+                    formBodyInputBox[i].style.border = "#dadce0 solid 1px";
+                }
+            }
         }
         setTimeout(removeFormBackground, 250);
     }
