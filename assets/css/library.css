@@ -1,0 +1,86 @@
+:root {
+    --background_color: #fbfbfb;
+    --background_transparent: #000000bf;
+    --white: #fff;
+    --blue: #1a73e8;
+    --blue_highlight: #2c7de7;
+    --blue_transparent: #1a73e814;
+    --gray: #5f6368;
+    --red: #e81123;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background: var(--background_color);
+    color: var(--gray);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.box_shadow {
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.border_radius {
+    border-radius: 6px;
+}
+
+.border_container {
+    border: 1px solid #dadce0;
+}
+
+.responsive_width {
+    width: 1000px;
+    max-width: 90%;
+}
+
+.primary_button {
+    padding: 10px 22px;
+    color: var(--gray);
+}
+
+.primary_button:hover {
+    background: var(--blue_transparent);
+}
+
+.secondary_button {
+    background: var(--blue);
+    color: var(--white);
+    padding: 10px 22px;
+}
+
+.secondary_button:hover {
+    background: var(--blue_highlight);
+}
