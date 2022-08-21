@@ -3,10 +3,11 @@
     --background_transparent: #000000bf;
     --white: #fff;
     --blue: #1a73e8;
-    --blue_highlight: #2c7de7;
+    --blue_highlight: #0056cc;
     --blue_transparent: #1a73e814;
     --gray: #5f6368;
     --red: #e81123;
+    --green: #04844b;
 }
 
 * {
