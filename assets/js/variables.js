@@ -15,3 +15,4 @@ var formEditSubmitButton = document.getElementById("edit_submit_button");
 var deleteDataBackground = document.getElementsByClassName("delete_data_background");
 var deleteDataContainer = document.getElementsByClassName("delete_data_container");
 var deleteDataInput = document.getElementsByClassName("delete_data_input");
+var editDataID = document.getElementById("edit_data_id");

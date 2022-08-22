@@ -135,6 +135,7 @@
 .table_row_actions {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 10px;
     width: 48px;
 }
@@ -182,6 +183,7 @@
 }
 
 .form_title {
+    font-size: 15px;
     font-weight: 500;
     color: var(--gray);
 }
@@ -334,6 +336,9 @@
 .delete_data_button {
     width: 100%;
     text-align: center;
+}
+#edit_data_id {
+    display: none;
 }
 
 @media screen and (max-width: 720px) {

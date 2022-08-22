@@ -65,6 +65,7 @@
                     <div class="form_body_section">
                         <div class="form_body_input_container">
                             <label class="form_body_input_label">Name</label><br>
+                            <input id="edit_data_id" name="dataID">
                             <input type="text" class="form_body_input_box" placeholder="First Name" name="formFirstName"
                             onfocus="addNewInputFocus(formBodyInputBox[0])" onblur="addNewInputBlur(formBodyInputBox[0])">
                         </div>
@@ -238,7 +239,86 @@
                             addRetrieveInput("An error has occurred!", 6);
                         }
                     } else if (isset($_POST['editSubmit'])) {
-                        echo "Edit ni siya testing!";
+                        $dataID = $_POST['dataID'];
+                        $inputFirstName = $_POST['formFirstName'];
+                        $inputLastName = $_POST['formLastName'];
+                        $inputDateofBirthMonth = $_POST['formDateofBirthMonth'];
+                        $inputDateofBirthDay = $_POST['formDateofBirthDay'];
+                        $inputDateofBirthYear = $_POST['formDateofBirthYear'];
+                        $inputEmail = $_POST['formEmail'];
+                        $inputPhone = $_POST['formPhone'];
+
+                        $dbEditSelectionEmailQuery = mysqli_query($mysqlConnect, "SELECT email FROM users WHERE email='$inputEmail'");
+                        $dbEditSelectionPhoneQuery = mysqli_query($mysqlConnect, "SELECT phone FROM users WHERE phone='$inputPhone'");
+                        $dbEditDataFetch = mysqli_fetch_assoc(mysqli_query($mysqlConnect, "SELECT * FROM users WHERE id=$dataID;"));
+
+                        function editRetrieveInput($addErrorMsg, $addErrorNumber) {
+                            $inputFirstName = $_POST['formFirstName'];
+                            $inputLastName = $_POST['formLastName'];
+                            $inputDateofBirthMonth = $_POST['formDateofBirthMonth'];
+                            $inputDateofBirthDay = $_POST['formDateofBirthDay'];
+                            $inputDateofBirthYear = $_POST['formDateofBirthYear'];
+                            $inputEmail = $_POST['formEmail'];
+                            $inputPhone = $_POST['formPhone'];
+                            echo "<script>
+                                    var formBodyInputBox = document.getElementsByClassName('form_body_input_box');
+
+                                    document.getElementsByClassName('form_background')[0].style.display = 'flex';
+                                    document.getElementsByClassName('form_container')[0].style.transform = 'scale(1)';
+                                    document.getElementsByClassName('form_title')[0].innerHTML = 'Edit Employee';
+                                    document.getElementById('edit_submit_button').style.display = 'block';
+                                    formBodyInputBox[0].value = '$inputFirstName';
+                                    formBodyInputBox[1].value = '$inputLastName';
+                                    formBodyInputBox[2].value = '$inputDateofBirthMonth';
+                                    formBodyInputBox[3].value = '$inputDateofBirthDay';
+                                    formBodyInputBox[4].value = '$inputDateofBirthYear';
+                                    formBodyInputBox[5].value = '$inputEmail';
+                                    formBodyInputBox[6].value = '$inputPhone';
+                                    document.getElementsByClassName('form_error_container')[0].style.display = 'flex';
+                                    document.getElementsByClassName('form_error_msg')[0].innerHTML = '$addErrorMsg';
+                                    formBodyInputBox[$addErrorNumber].style.border = 'var(--red) solid 1px';
+                                </script>";
+                        }
+
+                        if ($inputFirstName == "") {
+                            editRetrieveInput("First Name field is required", 0);
+                        } else if (!preg_match("/([A-ZÑ][a-z-ñ.]+)$/", $inputFirstName)) {
+                            editRetrieveInput("Make sure first letter is capital on First Name field", 0);
+                        } else if ($inputLastName == "") {
+                            editRetrieveInput("Last Name field is required", 1);
+                        } else if (!preg_match("/([A-ZÑ][a-z-ñ.]+)$/", $inputLastName)) {
+                            editRetrieveInput("Make sure first letter is capital on Last Name field", 1);
+                        } else if ($inputDateofBirthMonth == "Month") {
+                            editRetrieveInput("Your date of birth is invalid", 2);
+                        } else if ($inputDateofBirthDay == "Day") {
+                            editRetrieveInput("Your date of birth is invalid", 3);
+                        } else if ($inputDateofBirthYear == "") {
+                            editRetrieveInput("Date of Birth (Year) field is required", 4);
+                        } else if ($inputDateofBirthYear < 1957 || $inputDateofBirthYear > 2003) {
+                            editRetrieveInput("Employee must be around 18-65 years old only", 4);
+                        } else if ($inputEmail == "") {
+                            editRetrieveInput("Email address is required", 5);
+                        } else if (!preg_match("/[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/", $inputEmail)) {
+                            editRetrieveInput("Invalid email address", 5);
+                        } else if ($dbEditSelectionEmailQuery->num_rows != 0 && $dbEditDataFetch) {
+                            editRetrieveInput("Email address already exist", 5);
+                        } else if ($inputPhone == "") {
+                            editRetrieveInput("Phone number is required", 6);
+                        } else if (!preg_match("/^[0-9]*$/", $inputPhone)) {
+                            editRetrieveInput("Only numbers are allowed", 6);
+                        } else if (strlen($inputPhone) != 11) {
+                            editRetrieveInput("Invalid phone number", 6);
+                        } else if (!preg_match("/(09[0-9]{9})/", $inputPhone)) {
+                            editRetrieveInput("Invalid phone number", 6);
+                        } else if ($dbEditSelectionPhoneQuery->num_rows != 0) {
+                            editRetrieveInput("Phone number already exist", 6);
+                        } else if ($dbEditSelectionPhoneQuery->num_rows == 0 && $dbEditSelectionEmailQuery->num_rows == 0) {
+                            mysqli_query($mysqlConnect, "UPDATE users SET fname='$inputFirstName', lname='$inputLastName', bdmonth='$inputDateofBirthMonth', bdday='$inputDateofBirthDay', bdyear='$inputDateofBirthYear', email='$inputEmail', phone='$inputPhone' 
+                                                         WHERE id='$dataID';");
+                            toastActivate("var(--blue)", "Data edited successfully!");
+                        } else {
+                            editRetrieveInput("An error has occurred!", 6);
+                        }
                     }
                 ?>
             </form>
@@ -332,7 +412,7 @@
                                             <p class='table_row_email'>".$selectDataFetch['email']."</p>
                                             <p class='table_row_phone'>".$selectDataFetch['phone']."</p>
                                             <div class='table_row_actions'>
-                                                <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openEditForm(".$selectDataFetch['fname'].", ".$selectDataFetch['lname'].", ".$selectDataFetch['bdmonth'].", ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].", ".$selectDataFetch['email'].", ".$selectDataFetch['phone'].")'>
+                                                <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openEditForm(".$selectDataFetch['id'].", \"".$selectDataFetch['fname']."\", \"".$selectDataFetch['lname']."\", ".$selectDataFetch['bdmonth'].", ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].", \"".$selectDataFetch['email']."\", \"".$selectDataFetch['phone']."\")'>
                                                     <title>Edit</title>
                                                     <path d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z' fill='#1a73e8'/>
                                                 </svg>

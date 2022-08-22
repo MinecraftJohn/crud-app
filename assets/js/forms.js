@@ -33,6 +33,7 @@ function closeAddEditForm() {
             formErrorContainer[0].style.display = "none";
             formAddSubmitButton.style.display = "none";
             formEditSubmitButton.style.display = "none";
+            editDataID.value = "";
             for (let i = 0; i <= 6; i++) {
                 if (i == 2) {
                     formBodyInputBox[i].value = "Month";
@@ -53,10 +54,11 @@ function closeAddEditForm() {
 
 
 // EDIT FORM FUNCTIONS
-function openEditForm(dataFirstName, dataLastName, dataDateofBirthMonth, dataDateofBirthDay, dataDateofBirthYear, dataEmail, dataPhone) {
+function openEditForm(dataID, dataFirstName, dataLastName, dataDateofBirthMonth, dataDateofBirthDay, dataDateofBirthYear, dataEmail, dataPhone) {
     formBackground[0].style.display = "flex";
     formTitle[0].innerHTML = "Edit Employee";
     formEditSubmitButton.style.display = "block";
+    editDataID.value = dataID;
     formBodyInputBox[0].value = dataFirstName;
     formBodyInputBox[1].value = dataLastName;
     formBodyInputBox[2].value = dataDateofBirthMonth;
