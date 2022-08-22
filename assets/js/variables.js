@@ -12,3 +12,6 @@ var formBodyInputBox = document.getElementsByClassName("form_body_input_box");
 var formErrorContainer = document.getElementsByClassName("form_error_container");
 var formAddSubmitButton = document.getElementById("add_submit_button");
 var formEditSubmitButton = document.getElementById("edit_submit_button");
+var deleteDataBackground = document.getElementsByClassName("delete_data_background");
+var deleteDataContainer = document.getElementsByClassName("delete_data_container");
+var deleteDataInput = document.getElementsByClassName("delete_data_input");

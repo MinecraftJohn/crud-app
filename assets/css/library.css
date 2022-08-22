@@ -3,10 +3,11 @@
     --background_transparent: #000000bf;
     --white: #fff;
     --blue: #1a73e8;
-    --blue_highlight: #0056cc;
+    --blue_hover: #0056cc;
     --blue_transparent: #1a73e814;
     --gray: #5f6368;
     --red: #e81123;
+    --red_hover: #b9000f;
     --green: #04844b;
 }
 
@@ -47,6 +48,11 @@ nav {
 
 button {
     border: none;
+    background: var(--white);
+}
+
+.button_padding {
+    padding: 10px 22px;
     cursor: pointer;
 }
 
@@ -68,7 +74,6 @@ button {
 }
 
 .primary_button {
-    padding: 10px 22px;
     color: var(--gray);
 }
 
@@ -79,9 +84,17 @@ button {
 .secondary_button {
     background: var(--blue);
     color: var(--white);
-    padding: 10px 22px;
 }
 
 .secondary_button:hover {
-    background: var(--blue_highlight);
+    background: var(--blue_hover);
+}
+
+.danger_button {
+    background: var(--red);
+    color: var(--white);
+}
+
+.danger_button:hover {
+    background: var(--red_hover);
 }

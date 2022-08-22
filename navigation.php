@@ -8,10 +8,10 @@
             <path d="M174.852 45H170.094V33.5156C170.094 29.3594 168.706 27.2812 165.931 27.2812C164.536 27.2812 163.36 27.8828 162.403 29.0859C161.446 30.2891 160.968 31.8271 160.968 33.7002V45H156.189V13.9102H160.968V27.4863H161.05C162.636 24.834 164.905 23.5078 167.858 23.5078C172.521 23.5078 174.852 26.3584 174.852 32.0596V45ZM198.948 45H194.19V41.6777H194.108C192.728 44.2207 190.581 45.4922 187.669 45.4922C182.706 45.4922 180.225 42.5117 180.225 36.5508V24H184.982V36.0586C184.982 39.832 186.438 41.7188 189.351 41.7188C190.759 41.7188 191.914 41.1992 192.816 40.1602C193.732 39.1211 194.19 37.7607 194.19 36.0791V24H198.948V45ZM210.002 41.9648H209.92V45H205.162V13.9102H209.92V27.6914H210.002C211.629 24.9023 214.008 23.5078 217.139 23.5078C219.791 23.5078 221.862 24.4512 223.353 26.3379C224.856 28.2109 225.608 30.7266 225.608 33.8848C225.608 37.3984 224.768 40.2148 223.086 42.334C221.404 44.4395 219.107 45.4922 216.195 45.4922C213.461 45.4922 211.396 44.3164 210.002 41.9648ZM209.879 33.6182V36.2227C209.879 37.7539 210.364 39.0527 211.335 40.1191C212.319 41.1855 213.563 41.7188 215.067 41.7188C216.831 41.7188 218.212 41.0352 219.21 39.668C220.222 38.2871 220.728 36.3662 220.728 33.9053C220.728 31.8408 220.256 30.2275 219.312 29.0654C218.383 27.8896 217.118 27.3018 215.519 27.3018C213.823 27.3018 212.456 27.9033 211.417 29.1064C210.392 30.3096 209.879 31.8135 209.879 33.6182Z" fill="var(--blue)"/>
         </svg>
         <div class="nav_container">
-            <a href="index.php" class="primary_button border_radius">Home</a>
-            <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius">About</a>
-            <a href="#" class="primary_button border_radius">Support</a>
-            <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius">Source Code</a>
+            <a href="index.php" class="primary_button border_radius button_padding">Home</a>
+            <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius button_padding">About</a>
+            <a href="#" class="primary_button border_radius button_padding">Support</a>
+            <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius button_padding">Source Code</a>
         </div>
         <svg width="32" height="32" viewBox="0 0 32 32" class="nav_icon border_radius" onclick="navMenuFadein()">
             <path fill="var(--textGray)" d="M22 10v2H10v-2zm0 5v2H10v-2zm0 5v2H10v-2z"></path>
@@ -19,8 +19,8 @@
     </nav>
 </section>
 <div class="nav_mobile_container">
-    <a href="index.php" class="primary_button border_radius">Home</a>
-    <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius">About</a>
-    <a href="#" class="primary_button border_radius">Support</a>
-    <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius">Source Code</a>
+    <a href="index.php" class="primary_button border_radius button_padding">Home</a>
+    <a href="https://www.educative.io/answers/what-are-create-and-read-operations-in-crud-php" class="primary_button border_radius button_padding">About</a>
+    <a href="#" class="primary_button border_radius button_padding">Support</a>
+    <a href="https://github.com/MinecraftJohn/crud_app" class="secondary_button border_radius button_padding">Source Code</a>
 </div>
