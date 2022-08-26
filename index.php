@@ -238,7 +238,8 @@
                         } else {
                             addRetrieveInput("An error has occurred!", 6);
                         }
-                    } else if (isset($_POST['editSubmit'])) {
+                    }
+                    if (isset($_POST['editSubmit'])) {
                         $dataID = $_POST['dataID'];
                         $inputFirstName = $_POST['formFirstName'];
                         $inputLastName = $_POST['formLastName'];
@@ -250,7 +251,7 @@
 
                         $dbEditSelectionEmailQuery = mysqli_query($mysqlConnect, "SELECT email FROM users WHERE email='$inputEmail'");
                         $dbEditSelectionPhoneQuery = mysqli_query($mysqlConnect, "SELECT phone FROM users WHERE phone='$inputPhone'");
-                        $dbEditDataFetch = mysqli_fetch_assoc(mysqli_query($mysqlConnect, "SELECT * FROM users WHERE id=$dataID;"));
+                        $dbEditDataFetch = mysqli_fetch_assoc(mysqli_query($mysqlConnect, "SELECT * FROM users WHERE id='$dataID'"));
 
                         function editRetrieveInput($addErrorMsg, $addErrorNumber) {
                             $inputFirstName = $_POST['formFirstName'];
@@ -300,7 +301,15 @@
                             editRetrieveInput("Email address is required", 5);
                         } else if (!preg_match("/[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/", $inputEmail)) {
                             editRetrieveInput("Invalid email address", 5);
-                        } else if ($dbEditSelectionEmailQuery->num_rows != 0 && $dbEditDataFetch) {
+                        } else if ($inputEmail == $dbEditDataFetch['email'] && $inputPhone == $dbEditDataFetch['phone']) {
+                            mysqli_query($mysqlConnect, "UPDATE users SET fname='$inputFirstName', lname='$inputLastName', bdmonth='$inputDateofBirthMonth', bdday='$inputDateofBirthDay', bdyear='$inputDateofBirthYear', email='$inputEmail', phone='$inputPhone' 
+                                                         WHERE id='$dataID'");
+                            toastActivate("var(--blue)", "Data edited successfully!");
+                        } else if ($inputEmail == $dbEditDataFetch['email']) {
+                            mysqli_query($mysqlConnect, "UPDATE users SET fname='$inputFirstName', lname='$inputLastName', bdmonth='$inputDateofBirthMonth', bdday='$inputDateofBirthDay', bdyear='$inputDateofBirthYear', email='$inputEmail', phone='$inputPhone' 
+                                                         WHERE id='$dataID'");
+                            toastActivate("var(--blue)", "Data edited successfully!");
+                        } else if ($dbEditSelectionEmailQuery->num_rows != 0) {
                             editRetrieveInput("Email address already exist", 5);
                         } else if ($inputPhone == "") {
                             editRetrieveInput("Phone number is required", 6);
@@ -310,12 +319,12 @@
                             editRetrieveInput("Invalid phone number", 6);
                         } else if (!preg_match("/(09[0-9]{9})/", $inputPhone)) {
                             editRetrieveInput("Invalid phone number", 6);
+                        } else if ($inputPhone == $dbEditDataFetch['phone']) {
+                            mysqli_query($mysqlConnect, "UPDATE users SET fname='$inputFirstName', lname='$inputLastName', bdmonth='$inputDateofBirthMonth', bdday='$inputDateofBirthDay', bdyear='$inputDateofBirthYear', email='$inputEmail', phone='$inputPhone' 
+                                                         WHERE id='$dataID'");
+                            toastActivate("var(--blue)", "Data edited successfully!");
                         } else if ($dbEditSelectionPhoneQuery->num_rows != 0) {
                             editRetrieveInput("Phone number already exist", 6);
-                        } else if ($dbEditSelectionPhoneQuery->num_rows == 0 && $dbEditSelectionEmailQuery->num_rows == 0) {
-                            mysqli_query($mysqlConnect, "UPDATE users SET fname='$inputFirstName', lname='$inputLastName', bdmonth='$inputDateofBirthMonth', bdday='$inputDateofBirthDay', bdyear='$inputDateofBirthYear', email='$inputEmail', phone='$inputPhone' 
-                                                         WHERE id='$dataID';");
-                            toastActivate("var(--blue)", "Data edited successfully!");
                         } else {
                             editRetrieveInput("An error has occurred!", 6);
                         }
@@ -351,80 +360,72 @@
                 </div>
                 <div class="table_content">
                     <?php 
-                        $selectNameResult = mysqli_query($mysqlConnect, "SELECT * FROM users");
-                        $selectNameFetch = mysqli_fetch_assoc($selectNameResult);
+                        $selectDataResult = mysqli_query($mysqlConnect, "SELECT * FROM users");
 
-                        if (0 == $selectNameResult->num_rows) {
+                        if (0 == $selectDataResult->num_rows) {
                             echo "<p class='table_empty_message'>Sorry, there is no data available.</p>";
                         } else {
-                            // echo "Total scanned: ".$selectNameResult->num_rows."<br>";
-                            for ($i=1; $selectNameResult->num_rows >= $i; $i++) {
-                                $selectDataFetch = mysqli_fetch_assoc(mysqli_query($mysqlConnect, "SELECT * FROM users WHERE id=$i;"));
-                                if (isset($selectDataFetch['id'])) {
-                                    // echo $selectDataFetch['id']." ".$i."<br>";
-                                    echo "<div class='table_data'>
-                                            <p class='table_row_name'>".$selectDataFetch['fname']." ". $selectDataFetch['lname']."</p>
-                                            <p class='table_row_birthdate'>";
-                                                switch ($selectDataFetch['bdmonth']) {
-                                                    case 1:
-                                                        echo 'Jan';
-                                                        break;
-                                                    case 2:
-                                                        echo 'Feb';
-                                                        break;
-                                                    case 3:
-                                                        echo 'Mar';
-                                                        break;
-                                                    case 4:
-                                                        echo 'Apr';
-                                                        break;
-                                                    case 5:
-                                                        echo 'May';
-                                                        break;
-                                                    case 6:
-                                                        echo 'Jun';
-                                                        break;
-                                                    case 7:
-                                                        echo 'Jul';
-                                                        break;
-                                                    case 8:
-                                                        echo 'Aug';
-                                                        break;
-                                                    case 9:
-                                                        echo 'Sep';
-                                                        break;
-                                                    case 10:
-                                                        echo 'Oct';
-                                                        break;
-                                                    case 11:
-                                                        echo 'Nov';
-                                                        break;
-                                                    case 12:
-                                                        echo 'Dec';
-                                                        break;
-                                                    
-                                                    default:
-                                                        echo 'Err';
-                                                        break;
-                                                }
-                                            echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
-                                            "</p>
-                                            <p class='table_row_email'>".$selectDataFetch['email']."</p>
-                                            <p class='table_row_phone'>".$selectDataFetch['phone']."</p>
-                                            <div class='table_row_actions'>
-                                                <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openEditForm(".$selectDataFetch['id'].", \"".$selectDataFetch['fname']."\", \"".$selectDataFetch['lname']."\", ".$selectDataFetch['bdmonth'].", ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].", \"".$selectDataFetch['email']."\", \"".$selectDataFetch['phone']."\")'>
-                                                    <title>Edit</title>
-                                                    <path d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z' fill='#1a73e8'/>
-                                                </svg>
-                                                <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openDeleteConfirmation(".$selectDataFetch['id'].")'>
-                                                    <title>Delete</title>
-                                                    <path d='M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z' fill='#e81123'/>
-                                                </svg>
-                                            </div>
-                                        </div>";
-                                } else {
-                                    echo $i."error"."<br>";
-                                }
+                            while ($selectDataFetch = $selectDataResult->fetch_assoc()) {
+                                echo "<div class='table_data'>
+                                        <p class='table_row_name'>".$selectDataFetch['fname']." ". $selectDataFetch['lname']."</p>
+                                        <p class='table_row_birthdate'>";
+                                            switch ($selectDataFetch['bdmonth']) {
+                                                case 1:
+                                                    echo 'Jan';
+                                                    break;
+                                                case 2:
+                                                    echo 'Feb';
+                                                    break;
+                                                case 3:
+                                                    echo 'Mar';
+                                                    break;
+                                                case 4:
+                                                    echo 'Apr';
+                                                    break;
+                                                case 5:
+                                                    echo 'May';
+                                                    break;
+                                                case 6:
+                                                    echo 'Jun';
+                                                    break;
+                                                case 7:
+                                                    echo 'Jul';
+                                                    break;
+                                                case 8:
+                                                    echo 'Aug';
+                                                    break;
+                                                case 9:
+                                                    echo 'Sep';
+                                                    break;
+                                                case 10:
+                                                    echo 'Oct';
+                                                    break;
+                                                case 11:
+                                                    echo 'Nov';
+                                                    break;
+                                                case 12:
+                                                    echo 'Dec';
+                                                    break;
+                                                
+                                                default:
+                                                    echo 'Err';
+                                                    break;
+                                            }
+                                    echo " ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].
+                                    "</p>
+                                    <p class='table_row_email'>".$selectDataFetch['email']."</p>
+                                    <p class='table_row_phone'>".$selectDataFetch['phone']."</p>
+                                    <div class='table_row_actions'>
+                                        <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openEditForm(".$selectDataFetch['id'].", \"".$selectDataFetch['fname']."\", \"".$selectDataFetch['lname']."\", ".$selectDataFetch['bdmonth'].", ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].", \"".$selectDataFetch['email']."\", \"".$selectDataFetch['phone']."\")'>
+                                            <title>Edit</title>
+                                            <path d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z' fill='#1a73e8'/>
+                                        </svg>
+                                        <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openDeleteConfirmation(".$selectDataFetch['id'].")'>
+                                            <title>Delete</title>
+                                            <path d='M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z' fill='#e81123'/>
+                                        </svg>
+                                    </div>
+                                </div>";
                             }
                         }
                     ?>
