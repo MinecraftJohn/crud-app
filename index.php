@@ -418,11 +418,11 @@
                                     <div class='table_row_actions'>
                                         <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openEditForm(".$selectDataFetch['id'].", \"".$selectDataFetch['fname']."\", \"".$selectDataFetch['lname']."\", ".$selectDataFetch['bdmonth'].", ".$selectDataFetch['bdday'].", ".$selectDataFetch['bdyear'].", \"".$selectDataFetch['email']."\", \"".$selectDataFetch['phone']."\")'>
                                             <title>Edit</title>
-                                            <path d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z' fill='#1a73e8'/>
+                                            <path d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z' fill='var(--blue)'/>
                                         </svg>
                                         <svg class='table_row_actions_icon' viewBox='0 0 24 24' onclick='openDeleteConfirmation(".$selectDataFetch['id'].")'>
                                             <title>Delete</title>
-                                            <path d='M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z' fill='#e81123'/>
+                                            <path d='M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z' fill='var(--red)'/>
                                         </svg>
                                     </div>
                                 </div>";
