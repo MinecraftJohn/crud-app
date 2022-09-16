@@ -1,7 +1,7 @@
 <h1>C.R.U.D Application</h1>
 This project is called crud (create, read, update, and delete) the four basic functionality that manipulate data in a database that is important to any web application’s basic functionality. 
 <a href="https://www.google.com/search?q=what+is+crud+in+programming" target="_blank">Learn more</a>.<br><br>
-<kbd><img src="https://raw.githubusercontent.com/MinecraftJohn/crud_app/crud-app/assets/img/repository_preview.png" alt="Repository Preview Screenshot"></kbd><br><br>
+<kbd><img src="https://raw.githubusercontent.com/MinecraftJohn/MinecraftJohn/main/assets/other-repository/crud_app/preview_screenshot.png" alt="Repository Preview Screenshot"></kbd><br><br>
 This project was my first programming challenge/task that was given by my mentor from my internship company. What you see in the picture where data is being displayed, that is the read function based on the unique ID available it will then take its row data and by using the power of HTML/PHP you can now display the gathered data. When you click the add new button a form will pop-up where you can enter a data to insert into database, this is the create function. The 
 <span><img src="https://raw.githubusercontent.com/MinecraftJohn/MinecraftJohn/49daa7b475221c8441d9995ce463e997c1739b79/assets/other-repository/crud_app/pencil-fill.svg" alt="Pencil Icon"></span>
 icon allows you to update that specific data and 
