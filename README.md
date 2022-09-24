@@ -1,4 +1,4 @@
-<h1>C.R.U.D Application</h1>
+<h2>C.R.U.D Application</h2>
 This project is called crud (create, read, update, and delete) the four basic functionality that manipulate data in a database that is important to any web application’s basic functionality. 
 <a href="https://www.google.com/search?q=what+is+crud+in+programming" target="_blank">Learn more</a>.<br><br>
 <kbd><img src="https://raw.githubusercontent.com/MinecraftJohn/MinecraftJohn/main/assets/other-repository/crud_app/preview_screenshot.png" alt="Repository Preview Screenshot"></kbd><br><br>
