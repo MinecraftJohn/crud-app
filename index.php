@@ -1,5 +1,5 @@
 <?php 
-    include "_connect.php";
+    include "connection.php";
     function toastActivate($color, $toast_msg) {
         echo "<script>
                 document.getElementsByClassName('toast_container')[0].style.display = 'block';
